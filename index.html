@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday, Shafin!</title>
+<meta name="description" content="A birthday surprise for Shafin.">
+<meta property="og:title" content="Happy Birthday, Shafin! 🎂">
+<meta property="og:description" content="A little surprise, made just for you. Tap to blow out the candles.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#14123a; --night2:#221e5c; --sun:#ffd23f; --coral:#ff5c8a; --mint:#3ddbb1; --paper:#f7f4ff;
+  --display:'Fredoka','Trebuchet MS',system-ui,sans-serif; --body:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--night)}
+body{
+  min-height:100vh; color:var(--paper); font-family:var(--body); font-size:1.125rem; line-height:1.6;
+  background:radial-gradient(ellipse at 50% 0%,var(--night2),var(--night) 65%);
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom); overflow-x:hidden;
+}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+main{max-width:40rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;text-align:center}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,11vw,4.5rem);line-height:1.05;letter-spacing:-.01em}
+h1 span{display:block;color:var(--sun)}
+.sub{margin-top:.75rem;color:#cfc9f5}
+.cake-wrap{margin:1.5rem auto 0;width:min(20rem,86%)}
+svg{width:100%;height:auto;display:block;overflow:visible}
+.flame{transform-origin:50% 100%;animation:flick .5s ease-in-out infinite alternate;transition:opacity .3s,transform .3s}
+.flame:nth-of-type(2){animation-delay:.15s}.flame:nth-of-type(3){animation-delay:.3s}
+.out .flame{opacity:0;transform:scale(.2);animation:none}
+.smoke{opacity:0}
+.out .smoke{animation:smoke 1.6s ease-out forwards}
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.12) rotate(3deg)}}
+@keyframes smoke{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(-26px)}}
+button{
+  font:700 1.125rem var(--display); color:var(--night); background:var(--sun); border:0; border-radius:999px;
+  padding:.85rem 1.75rem; margin-top:1.5rem; cursor:pointer; box-shadow:0 5px 0 #c99a00; transition:transform .1s,box-shadow .1s;
+}
+button:hover{transform:translateY(1px);box-shadow:0 4px 0 #c99a00}
+button:active{transform:translateY(5px);box-shadow:0 0 0 #c99a00}
+button:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+#wishes{display:none;margin-top:3rem}
+#wishes.show{display:block;animation:rise .8s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.letter{
+  background:var(--paper); color:var(--night); border-radius:1.5rem 1.5rem 1.5rem .4rem; padding:1.75rem 1.5rem;
+  text-align:left; transform:rotate(-1deg); box-shadow:8px 8px 0 var(--coral);
+}
+.letter h2{font-family:var(--display);font-size:1.6rem;margin-bottom:.75rem}
+.letter p+p{margin-top:.9rem}
+.sign{font-family:var(--display);font-weight:500;margin-top:1.25rem;text-align:right;color:#b0214f}
+.wish-list{display:grid;gap:1rem;margin-top:2.25rem;text-align:left}
+.wish{border-left:6px solid var(--mint);padding:.25rem 0 .25rem 1rem}
+.wish:nth-child(2){border-color:var(--coral)}.wish:nth-child(3){border-color:var(--sun)}
+.wish b{font-family:var(--display);font-size:1.25rem;display:block}
+.again{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 2px #6b64b8;margin-top:2.5rem}
+.again:hover{box-shadow:inset 0 0 0 2px var(--mint)}
+footer{margin-top:3rem;font-size:.95rem;color:#9b95d6}
+@media (prefers-reduced-motion:reduce){.flame,.out .smoke,#wishes.show{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <h1>Happy Birthday,<span>Shafin!</span></h1>
+  <p class="sub" id="hint">Make a wish, then blow out the candles.</p>
+
+  <div class="cake-wrap" id="cake">
+    <svg viewBox="0 0 300 260" role="img" aria-label="Birthday cake with three lit candles">
+      <ellipse cx="150" cy="240" rx="135" ry="14" fill="#000" opacity=".25"/>
+      <rect x="30" y="170" width="240" height="68" rx="14" fill="#ff5c8a"/>
+      <path d="M30 184 q15 18 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 v-14 h-240z" fill="#f7f4ff"/>
+      <rect x="55" y="112" width="190" height="62" rx="12" fill="#3ddbb1"/>
+      <path d="M55 124 q12.7 16 25.4 0 t25.4 0 t25.4 0 t25.4 0 t25.4 0 t25.4 0 t25.4 0 v-12 h-152z" fill="#f7f4ff"/>
+      <g fill="#ffd23f"><circle cx="85" cy="205" r="6"/><circle cx="150" cy="215" r="6"/><circle cx="215" cy="205" r="6"/>
+      <circle cx="105" cy="150" r="5"/><circle cx="150" cy="155" r="5"/><circle cx="195" cy="150" r="5"/></g>
+      <g id="candles">
+        <rect x="100" y="70" width="12" height="44" rx="3" fill="#ffd23f"/>
+        <rect x="144" y="62" width="12" height="52" rx="3" fill="#ff5c8a"/>
+        <rect x="188" y="70" width="12" height="44" rx="3" fill="#ffd23f"/>
+        <path class="flame" d="M106 66 c-9-12 0-20 0-30 c9 10 9 20 0 30z" fill="#ff9d2e"/>
+        <path class="flame" d="M150 58 c-9-12 0-20 0-30 c9 10 9 20 0 30z" fill="#ff9d2e"/>
+        <path class="flame" d="M194 66 c-9-12 0-20 0-30 c9 10 9 20 0 30z" fill="#ff9d2e"/>
+        <g class="smoke" stroke="#cfc9f5" stroke-width="3" fill="none" stroke-linecap="round">
+          <path d="M106 60 q-5-8 0-16"/><path d="M150 52 q-5-8 0-16"/><path d="M194 60 q-5-8 0-16"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <button id="blow" type="button">Blow out the candles</button>
+
+  <section id="wishes" aria-live="polite">
+    <div class="letter">
+      <h2>Dear Shafin,</h2>
+      <p>Happy birthday to my little brother, and my best friend too. Not many people get both in one person, and I got lucky.</p>
+      <p>You make ordinary days funnier and hard days lighter. I'm proud of who you are and even more excited about who you're becoming.</p>
+      <p>Whatever you wish for today, I hope it comes true. And I'll be right there cheering, like always.</p>
+      <p class="sign">Your brother, Akib</p>
+    </div>
+    <div class="wish-list">
+      <div class="wish"><b>Stay happy</b>May every day this year give you a good reason to laugh.</div>
+      <div class="wish"><b>Dream big</b>Go after everything you want. You've got what it takes.</div>
+      <div class="wish"><b>Never change the good parts</b>Keep being the kind, funny person everyone loves.</div>
+    </div>
+    <button class="again" id="again" type="button">Light the candles again</button>
+  </section>
+  <footer>Made with love for Shafin</footer>
+</main>
+
+<script>
+(function(){
+  var cake=document.getElementById('cake'), wishes=document.getElementById('wishes'),
+      blow=document.getElementById('blow'), hint=document.getElementById('hint'),
+      again=document.getElementById('again'), cv=document.getElementById('fx'), ctx=cv.getContext('2d'),
+      calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      colors=['#ffd23f','#ff5c8a','#3ddbb1','#f7f4ff','#8f84ff'], bits=[], running=false;
+
+  function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio}
+  size(); addEventListener('resize',size);
+
+  function burst(){
+    var n=calm?0:160, d=devicePixelRatio;
+    for(var i=0;i<n;i++){
+      var side=i%2?1:-1;
+      bits.push({x:(side>0?0.15:0.85)*cv.width,y:cv.height*.7,
+        vx:(Math.random()*9+3)*side*d*(side>0?1:1)*(side>0?1:1),vy:-(Math.random()*16+8)*d,
+        s:(Math.random()*7+5)*d,r:Math.random()*6,vr:(Math.random()-.5)*.4,
+        c:colors[i%colors.length],life:1});
+    }
+    if(!running){running=true;requestAnimationFrame(tick)}
+  }
+  function tick(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    bits=bits.filter(function(b){return b.life>0&&b.y<cv.height+40});
+    bits.forEach(function(b){
+      b.vy+=.45*devicePixelRatio; b.vx*=.985; b.x+=b.vx; b.y+=b.vy; b.r+=b.vr; b.life-=.005;
+      ctx.save(); ctx.globalAlpha=Math.max(b.life,0); ctx.translate(b.x,b.y); ctx.rotate(b.r);
+      ctx.fillStyle=b.c; ctx.fillRect(-b.s/2,-b.s/4,b.s,b.s/2); ctx.restore();
+    });
+    if(bits.length)requestAnimationFrame(tick); else running=false;
+  }
+
+  function blowOut(){
+    if(cake.classList.contains('out'))return;
+    cake.classList.add('out');
+    blow.style.display='none';
+    hint.textContent='Your wish is on its way, Shafin!';
+    wishes.classList.add('show');
+    burst(); setTimeout(burst,500);
+    setTimeout(function(){wishes.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'})},700);
+  }
+  blow.addEventListener('click',blowOut);
+  cake.addEventListener('click',blowOut);
+  again.addEventListener('click',function(){
+    cake.classList.remove('out'); wishes.classList.remove('show');
+    blow.style.display=''; hint.textContent='Make a wish, then blow out the candles.';
+    scrollTo({top:0,behavior:calm?'auto':'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
